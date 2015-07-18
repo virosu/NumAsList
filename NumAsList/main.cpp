@@ -108,23 +108,10 @@ void testRandomNumberToList(T printItemAction)
 }
 
 int main(int argc, const char * argv[]) {
-    int numberLengthInBytes = 8;
-    List<char> list;
-    for(int i=0; i < numberLengthInBytes; i++) {
-        char value = static_cast<char>(rand()%16);
-        if(value > 9) {
-            value = 'A' + value-10;
-        } else {
-            value = '0' + value;
-        }
-        list.AddNew(value);
-    }
+
     auto printItem = [] (char v) {
         std::cout << v << std::endl;
     };
-
-    
-    list.ProcessValues(printItem);
 
     testRandomNumberToList(printItem);
     
