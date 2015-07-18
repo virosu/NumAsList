@@ -77,27 +77,10 @@ private:
 };
 
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+template<typename T>
+void testRandomNumberToList(T printItemAction)
+{
     int numberLengthInBytes = 8;
-    List<char> list;
-    for(int i=0; i < numberLengthInBytes; i++) {
-        char value = static_cast<char>(rand()%16);
-        if(value > 9) {
-            value = 'A' + value-10;
-        } else {
-            value = '0' + value;
-        }
-        list.AddNew(value);
-    }
-    auto l = [] (char v) {
-        std::cout << v << std::endl;
-    };
-
-    
-    list.ProcessValues(l);
-
     // take a number and represent it as hex in a linked list
     time_t t;
     time(&t);
@@ -119,8 +102,19 @@ int main(int argc, const char * argv[]) {
             break;
         }
     }
-    std::cout << "List representation: " << std::endl;
-    nlist.ProcessValues(l);
+    std::cout << "List representation: " << std::endl << "0x" << std::endl;
+    nlist.ProcessValues(printItemAction);
+    
+}
+
+int main(int argc, const char * argv[]) {
+
+    auto printItem = [] (char v) {
+        std::cout << v << std::endl;
+    };
+
+    testRandomNumberToList(printItem);
+    
     return 0;
 }
 
