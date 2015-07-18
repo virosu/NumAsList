@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 Victor Rosu. All rights reserved.
 //
 
+// Updated with SublimeText2
+// by virosu
+
+
 #include <iostream>
 #include <time.h>
 
